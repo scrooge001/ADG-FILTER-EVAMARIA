@@ -135,7 +135,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('This Movie Not Found! 🤷‍♂️ You Can Request It From Admins By Typing This Format 👉 @admin moviename 👈 When Admins Come Online They Will Update It🥸')
+            k = await query.message.edit('<b>This Movie Not Found! 🤷‍♂️ You Can Request It From Admins By Typing This Format 👉 @admin moviename 👈 When Admins Come Online They Will Update It</b>🥸')
             await asyncio.sleep(10)
             await k.delete()
 
@@ -364,9 +364,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
-                await query.answer('Check PM, I have sent files in pm', show_alert=True)
+                await query.answer('Check Your Inbox, I Have Sent Files To Inbox', show_alert=True)
         except UserIsBlocked:
-            await query.answer('Unblock the bot mahn !', show_alert=True)
+            await query.answer('Unblock the bot man !', show_alert=True)
         except PeerIdInvalid:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         except Exception as e:
@@ -762,7 +762,7 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("I couldn't find anything related to that. Check your spelling OR You Can Request It From Admins By Typing This Format 👉 @admin moviename 👈 When Admins Come Online They Will Update It🥸")
+        k = await msg.reply("<b>I couldn't find anything related to that. Check your spelling OR You Can Request It From Admins By Typing This Format 👉 @admin moviename 👈 When Admins Come Online They Will Update It </b> 🥸")
         await asyncio.sleep(8)
         await k.delete()
         return
@@ -774,7 +774,7 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("I couldn't find anything related to that\nDid you mean any one of these? OR You Can Request It From Admins By Typing This Format 👉 @admin moviename 👈 When Admins Come Online They Will Update It🥸",
+    await msg.reply("<b>I couldn't find anything related to that\nDid you mean any one of these? OR You Can Request It From Admins By Typing This Format 👉 @admin moviename 👈 When Admins Come Online They Will Update It </b> 🥸",
                     reply_markup=InlineKeyboardMarkup(btn))
 
 
